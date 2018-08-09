@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -35,6 +36,9 @@
                                 <rect key="frame" x="295" y="20" width="64" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="switch"/>
+                                <connections>
+                                    <segue destination="fLq-Wp-efk" kind="show" identifier="changeCityName" id="GxL-2I-c9l"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HHs-Ws-hjg">
                                 <rect key="frame" x="16" y="340" width="343" height="231"/>
@@ -53,10 +57,10 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aNJ-RE-nbd" userLabel="City Label">
-                                <rect key="frame" x="16" y="586" width="186" height="54"/>
+                                <rect key="frame" x="16" y="586" width="286" height="54"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="54" id="HLD-hy-BGl"/>
-                                    <constraint firstAttribute="width" constant="186" id="jso-0O-Tp2"/>
+                                    <constraint firstAttribute="width" constant="286" id="jso-0O-Tp2"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="45"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -90,9 +94,83 @@
             </objects>
             <point key="canvasLocation" x="32.799999999999997" y="31.773399014778327"/>
         </scene>
+        <!--Change City View Controller-->
+        <scene sceneID="frN-t6-qwm">
+            <objects>
+                <viewController id="fLq-Wp-efk" customClass="ChangeCityViewController" customModule="weather" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Cfg-gq-VER">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cityBackground" translatesAutoresizingMaskIntoConstraints="NO" id="mS2-ud-kKk">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q1o-Cp-YS5">
+                                <rect key="frame" x="102" y="246" width="170" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="41D-pL-l0S">
+                                <rect key="frame" x="56.5" y="300" width="262" height="67"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="262" id="Cu8-Z1-qdZ"/>
+                                    <constraint firstAttribute="height" constant="67" id="Tqn-6l-EZ0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="47"/>
+                                <state key="normal" title="Get Weather">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="getWeatherPressed:" destination="fLq-Wp-efk" eventType="touchUpInside" id="HPd-7T-nkh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pBC-ek-5TZ">
+                                <rect key="frame" x="16" y="20" width="32" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="pBC-ek-5TZ" secondAttribute="height" multiplier="1:1" id="Gs2-cX-iOD"/>
+                                    <constraint firstAttribute="height" constant="32" id="MbV-cP-OST"/>
+                                    <constraint firstAttribute="width" constant="32" id="Xrb-Zg-Oa3"/>
+                                </constraints>
+                                <state key="normal" image="left"/>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="fLq-Wp-efk" eventType="touchUpInside" id="HO8-Vr-bKc"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="mS2-ud-kKk" firstAttribute="leading" secondItem="kYf-zR-mQB" secondAttribute="leading" id="B38-l8-vgQ"/>
+                            <constraint firstItem="41D-pL-l0S" firstAttribute="centerY" secondItem="Cfg-gq-VER" secondAttribute="centerY" id="BPy-9n-XrB"/>
+                            <constraint firstItem="pBC-ek-5TZ" firstAttribute="top" secondItem="kYf-zR-mQB" secondAttribute="top" id="CIn-ET-shw"/>
+                            <constraint firstItem="mS2-ud-kKk" firstAttribute="bottom" secondItem="kYf-zR-mQB" secondAttribute="bottom" id="DYx-g4-T7Y"/>
+                            <constraint firstItem="41D-pL-l0S" firstAttribute="centerX" secondItem="Cfg-gq-VER" secondAttribute="centerX" id="KQ5-nI-pjd"/>
+                            <constraint firstItem="pBC-ek-5TZ" firstAttribute="leading" secondItem="kYf-zR-mQB" secondAttribute="leading" constant="16" id="LWc-Sd-o83"/>
+                            <constraint firstItem="mS2-ud-kKk" firstAttribute="top" secondItem="Cfg-gq-VER" secondAttribute="top" id="Wnv-0C-41I"/>
+                            <constraint firstItem="q1o-Cp-YS5" firstAttribute="top" secondItem="kYf-zR-mQB" secondAttribute="top" constant="226" id="XYC-3R-CDb"/>
+                            <constraint firstItem="kYf-zR-mQB" firstAttribute="trailing" secondItem="q1o-Cp-YS5" secondAttribute="trailing" constant="103" id="ZF4-sU-aZG"/>
+                            <constraint firstItem="mS2-ud-kKk" firstAttribute="bottom" secondItem="kYf-zR-mQB" secondAttribute="bottom" id="bAk-W5-tgN"/>
+                            <constraint firstItem="mS2-ud-kKk" firstAttribute="leading" secondItem="kYf-zR-mQB" secondAttribute="leading" id="jpC-SD-6aj"/>
+                            <constraint firstItem="mS2-ud-kKk" firstAttribute="trailing" secondItem="kYf-zR-mQB" secondAttribute="trailing" id="njV-ek-tB7"/>
+                            <constraint firstItem="41D-pL-l0S" firstAttribute="top" secondItem="q1o-Cp-YS5" secondAttribute="bottom" constant="24" id="pMj-kg-N1r"/>
+                            <constraint firstItem="mS2-ud-kKk" firstAttribute="trailing" secondItem="kYf-zR-mQB" secondAttribute="trailing" id="phB-Uk-DGe"/>
+                            <constraint firstItem="q1o-Cp-YS5" firstAttribute="leading" secondItem="kYf-zR-mQB" secondAttribute="leading" constant="102" id="wyJ-58-8S7"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="kYf-zR-mQB"/>
+                    </view>
+                    <connections>
+                        <outlet property="changeCityTextField" destination="q1o-Cp-YS5" id="OUy-vZ-APA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Zp-Bl-48e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="844" y="30.134932533733135"/>
+        </scene>
     </scenes>
     <resources>
         <image name="background" width="500" height="755"/>
+        <image name="cityBackground" width="600" height="399"/>
+        <image name="left" width="32" height="32"/>
         <image name="switch" width="64" height="64"/>
     </resources>
 </document>
