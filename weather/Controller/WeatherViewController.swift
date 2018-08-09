@@ -89,7 +89,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, changeCityDel
     }
     
     func userEnteredANewCityName(city: String) {
-        print(city)
+        let params : [String:String] = ["q":city,"appid":API_ID]
+        getWeatherData(url: WEATHER_URL, parameters: params)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
