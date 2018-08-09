@@ -21,6 +21,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var temperatureLabel: UILabel!
     
     let locationManager = CLLocationManager()
+    let weatherModel = WeatherDataModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,8 +68,24 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func updateWeatherData(json: JSON){
-        let tempResult = json["main"]["temp"]
-        print(tempResult)
+        
+        if let tempResult = json["main"]["temp"].double{
+            weatherModel.temperature = Int(tempResult - 273.15)
+            weatherModel.city = json["name"].stringValue
+            weatherModel.condition = json["weather"][0]["id"].intValue
+            weatherModel.weatherIconName = weatherModel.updateWeatherIcon(condition: weatherModel.condition)
+            updateUI();
+        }
+        else{
+            cityLabel.text = "Weather Unavailable"
+        }
+        
+    }
+    
+    func updateUI(){
+        cityLabel.text = weatherModel.city
+        temperatureLabel.text = "\(weatherModel.temperature)°"
+        weatherIcon.image = UIImage(named: weatherModel.weatherIconName)
     }
 
 }

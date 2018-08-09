@@ -12,6 +12,7 @@
 		0AD9E6D621197522002704BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AD9E6D421197522002704BA /* Main.storyboard */; };
 		0AD9E6DB21197524002704BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AD9E6DA21197524002704BA /* Assets.xcassets */; };
 		0AD9E6DE21197524002704BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AD9E6DC21197524002704BA /* LaunchScreen.storyboard */; };
+		0AD9E6EC211BE4CC002704BA /* WeatherDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD9E6EB211BE4CC002704BA /* WeatherDataModel.swift */; };
 		50CCCA2BC7324A2DA2F2471D /* Pods_weather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E362A55828617723B23D4EDE /* Pods_weather.framework */; };
 /* End PBXBuildFile section */
 
@@ -24,6 +25,7 @@
 		0AD9E6DA21197524002704BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0AD9E6DD21197524002704BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0AD9E6DF21197524002704BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0AD9E6EB211BE4CC002704BA /* WeatherDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDataModel.swift; sourceTree = "<group>"; };
 		5ACF6DAABC9B0F15C68DE94D /* Pods-weather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weather.debug.xcconfig"; path = "Pods/Target Support Files/Pods-weather/Pods-weather.debug.xcconfig"; sourceTree = "<group>"; };
 		E362A55828617723B23D4EDE /* Pods_weather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_weather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -75,6 +77,7 @@
 		0AD9E6E521197649002704BA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0AD9E6EB211BE4CC002704BA /* WeatherDataModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 			files = (
 				0AD9E6D321197522002704BA /* WeatherViewController.swift in Sources */,
 				0AD9E6D121197522002704BA /* AppDelegate.swift in Sources */,
+				0AD9E6EC211BE4CC002704BA /* WeatherDataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
